@@ -1,16 +1,88 @@
-# React + Vite
+# EczeMate+ 🩺
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI-Powered Eczema Management Platform built with React, Vite, Firebase, and OpenAI.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend:** React 18 + Vite 7
+- **Styling:** Tailwind CSS v4
+- **Backend/Auth:** Firebase (Authentication + Firestore)
+- **AI:** OpenAI API
+- **Charts:** Chart.js / Recharts
+- **Routing:** React Router v6
+- **Deployment:** Vercel
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- A Firebase project with **Email/Password Auth** and **Firestore** enabled
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Installation
+
+```bash
+git clone https://github.com/Mikaaroni/fyp.git
+cd fyp
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the root directory with the following configuration:
+
+```env
+VITE_FIREBASE_API_KEY=AIzaSyA9dcYIBsVorIzZb9fMP7EqfELMO71sqQI
+VITE_FIREBASE_AUTH_DOMAIN=eczemate-c2083.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=eczemate-c2083
+VITE_FIREBASE_STORAGE_BUCKET=eczemate-c2083.firebasestorage.app
+VITE_FIREBASE_MESSAGING_SENDER_ID=463741774944
+VITE_FIREBASE_APP_ID=1:463741774944:web:a31cea6d0577776ec1e705
+VITE_FIREBASE_MEASUREMENT_ID=G-FV9RD6RTMB
+```
+
+### Run the App
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173/`
+
+### Build for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+## Firebase Setup
+
+1. Go to the [Firebase Console](https://console.firebase.google.com/)
+2. Select the **eczemate-c2083** project
+3. Enable **Authentication** → **Sign-in method** → **Email/Password**
+4. Create a **Firestore Database** (start in test mode)
+
+## Project Structure
+
+```
+src/
+├── auth/           # Login & Signup pages
+├── assets/         # Static assets
+├── components/     # Reusable UI components
+├── features/       # Feature modules
+├── firebase/       # Firebase config & helpers
+├── pages/          # App pages (Patient, Doctor, Admin dashboards)
+├── styles/         # Global styles
+├── App.jsx         # Root component with routing
+└── main.jsx        # Entry point
+api/
+├── chat.js         # OpenAI chat endpoint
+└── analyze-triggers.js  # Trigger analysis endpoint
+```
+
+## Roles
+
+- **Patient** — Track symptoms, log triggers, view insights
+- **Doctor** — Monitor patients, provide recommendations
+- **Admin** — Manage users, approve doctor registrations
